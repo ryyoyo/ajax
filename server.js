@@ -38,7 +38,7 @@ if(path === '/'){
   response.setHeader('Content-Type','text/javascript; charset=utf-8')
   response.write(string)
   response.end()
-}else if(path === '/xxx'){
+}else if(path === '/xxx' && method === 'POST'){
   response.statusCode = 200
   response.setHeader('Content-Type','text/json; charset=utf-8')
   response.write(`

@@ -18,7 +18,7 @@ myBtn.addEventListener('click',(e)=>{
 				//转换成 JS 对应的值
 				let object = window.JSON.parse(string)
 				//JSON.parse 是浏览器提供的
-				//document.getElementById 是浏览器提供的一样
+				//document.getElementById 是浏览器提供的
 				console.log(typeof object)
 				// console.log(object)
 				console.log(object.note)
@@ -29,6 +29,6 @@ myBtn.addEventListener('click',(e)=>{
 			}
 		}
 	}
-	request.open('GET','/xxx')
+	request.open('POST','/xxx')
 	request.send()
 })
