@@ -11,8 +11,14 @@ myBtn.addEventListener('click',(e)=>{
 				let xmlDoc = parser.parseFromString(request.responseText,'text/xml')
 				let c = xmlDoc.getElementsByTagName('content')[0].textContent
 				console.log(c)*/
+
+
+				//把符合 JSON 语法的字符串
 				let string = request.responseText
+				//转换成 JS 对应的值
 				let object = window.JSON.parse(string)
+				//JSON.parse 是浏览器提供的
+				//document.getElementById 是浏览器提供的一样
 				console.log(typeof object)
 				// console.log(object)
 				console.log(object.note)
