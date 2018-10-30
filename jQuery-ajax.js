@@ -6,11 +6,12 @@ window.jQuery = function(nodeOrSelector){
 }
 window.$ = window.jQuery
 
+/*
 window.jQuery.ajax = function(options){
 	let url
-	if(arguments === 1){
+	if(arguments.length === 1){
 		url = options.url
-	}else if(arguments === 2){
+	}else if(arguments.length === 2){
 		url = arguments[0]
 		options = arguments[1]
 	}
@@ -19,10 +20,12 @@ window.jQuery.ajax = function(options){
 	let successFn = options.successFn
 	let failFn = options.failFn
 	let headers = options.headers
+*/
+window.jQuery.ajax = function({url, method, body, successFn, failFn, headers}){
 
 	let request = new XMLHttpRequest()
 	request.open(method,url)
-	for(key in headers){
+	for(let key in headers){
 		let value = headers[key]
 		request.setRequestHeader(key,value)
 	}
@@ -43,7 +46,7 @@ function f2(responseText){}
 
 myBtn.addEventListener('click',(e)=>{
 	window.jQuery.ajax({
-		url: '/yyy',
+		url: '/xxx',
 		method: 'post',
 		headers: {
 			'content-type':'application/x-www-form-urlencoded',
@@ -60,3 +63,6 @@ myBtn.addEventListener('click',(e)=>{
 		}
 	})
 })
+
+
+

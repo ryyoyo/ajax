@@ -33,6 +33,18 @@ if(path === '/'){
   response.setHeader('Content-Type','text/javascript; charset=utf-8')
   response.write(string)
   response.end()
+}else if(path === '/jQuery-ajax.js'){
+  var string = fs.readFileSync('./jQuery-ajax.js','utf8')
+  response.statusCode = 200
+  response.setHeader('Content-Type','text/javascript; charset=utf-8')
+  response.write(string)
+  response.end()
+}else if(path === '/promise.js'){
+  var string = fs.readFileSync('./promise.js','utf8')
+  response.statusCode = 200
+  response.setHeader('Content-Type','text/javascript; charset=utf-8')
+  response.write(string)
+  response.end()
 }else if(path === '/xxx'){
   response.statusCode = 200
   response.setHeader('Content-Type','text/json; charset=utf-8')
