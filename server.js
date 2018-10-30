@@ -19,11 +19,6 @@ var server = http.createServer(function(request, response){
 
   /******** 从这里开始看，上面不要看 ************/
 
-
-
-
-
-
   console.log('得到 HTTP 路径\n' + path)
 
 if(path === '/'){
@@ -38,9 +33,10 @@ if(path === '/'){
   response.setHeader('Content-Type','text/javascript; charset=utf-8')
   response.write(string)
   response.end()
-}else if(path === '/xxx' && method === 'POST'){
+}else if(path === '/xxx'){
   response.statusCode = 200
   response.setHeader('Content-Type','text/json; charset=utf-8')
+  response.setHeader('Access-Control-Allow-Origin','http://ry.com:8001')
   response.write(`
     {
       "note":{
@@ -55,16 +51,13 @@ if(path === '/'){
 }else{
   response.statusCode = 404
   response.setHeader('Content-Type', 'text/html;charset=utf-8')
-  response.write('呜呜呜')
+  response.write(`
+    {
+      "error": "not found"
+    }
+  `)
   response.end()
 }
-
-
-
-
-
-
-
 
   /******** 代码结束，下面不要看 ************/
 })
